@@ -1,0 +1,63 @@
+# Virgin Media O2 (virgin-media-o2)
+
+Virgin Media O2 is the United Kingdom's converged fixed and mobile network operator, formed in 2021 as a 50/50 joint venture between Telefonica and Liberty Global by merging Virgin Media's cable broadband business with O2 UK's mobile network. It serves roughly half the UK population across mobile, broadband, and fixed wholesale, and sits at the connectivity layer of the telecom value chain rather than the developer-tools layer. Its API posture is partner-gated and sales-led: probing `developer.virginmediao2.co.uk`, `developers.virginmediao2.co.uk`, `docs.virginmediao2.co.uk`, `api.virginmediao2.co.uk`, `opengateway.virginmediao2.co.uk`, `developer.o2.co.uk` and the `virginmediao2business.co.uk` equivalents returns DNS failure or HTTP 404 in every case, and neither the o2.co.uk sitemap nor the corporate site contains a developer or API section. Virgin Media O2 is a GSMA Open Gateway participant and on 23 September 2025 joined BT/EE, Vodafone and CK Hutchison (Three UK) in the commercial UK launch of CAMARA-standardised KYC Age Verification and KYC Tenure APIs, with SIM Swap already live and KYC Match committed; but developers reach that network-API surface only through third-party aggregators such as JT Group and TMT.ID, never through a Virgin Media O2 portal. There is no public self-serve signup, no downloadable OpenAPI, no sandbox, and no first-party SDK. Its GitHub organisation exists and is empty.
+
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/virgin-media-o2/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/virgin-media-o2/refs/heads/main/apis.yml)
+
+## Tags
+
+- Telecommunications
+- United Kingdom
+- Mobile Network Operator
+- Broadband
+- Network APIs
+- CAMARA
+- Open Gateway
+- Identity Verification
+- SIM Swap
+- Age Verification
+- Converged Operator
+- Partner Gated
+
+## Timestamps
+
+- **Created:** 2026-07-25
+- **Modified:** 2026-07-25
+
+## APIs
+
+None listed. Virgin Media O2 publishes no public API documentation, no API reference, and no machine-readable API definition of its own. This is an honest empty set, not a gap in research — every candidate developer host was probed on 2026-07-25 and recorded in [review.yml](review.yml).
+
+## CAMARA and GSMA Open Gateway
+
+Virgin Media O2 is a GSMA Open Gateway participant with a real commercial CAMARA launch behind it — this is not a press release with nothing callable. What is missing is the developer channel, not the capability.
+
+| CAMARA API | Status | Evidence |
+| --- | --- | --- |
+| KYC Age Verification | Commercially launched in the UK, 2025-09-23 | GSMA / PR Newswire joint operator announcement naming Virgin Media O2 |
+| KYC Tenure | Commercially launched in the UK, 2025-09-23 | GSMA / PR Newswire joint operator announcement naming Virgin Media O2 |
+| SIM Swap | Already available across the four UK operators before the 2025-09-23 launch | Telefonica Open Gateway UK article naming Virgin Media O2 |
+| KYC Match | Committed for end-2025; nothing callable found | GSMA / PR Newswire joint operator announcement |
+
+No evidence was found for Number Verification, Device Location, Device Status, Quality on Demand, Carrier Billing, Scam Signal, Device Swap, or Population Density.
+
+**How developers actually reach it:** through aggregators. The joint UK launch names Jersey Telecom (JT Group) and TMT.ID as the partners already processing hundreds of thousands of network API calls a month against the UK operators. Shareholder Telefonica runs its own Open Gateway developer portal at [developers.opengateway.telefonica.com](https://developers.opengateway.telefonica.com/) — a real self-serve surface, but Telefonica's, covering Telefonica's own footprint rather than the UK network.
+
+## Other findings
+
+- **TM Forum:** no Open API conformance certification found listed for Virgin Media O2.
+- **3GPP:** no public NEF/SCEF surface, no network-slicing API, no edge/MEC API.
+- **Auth:** not published. CAMARA specifies OIDC and CIBA, but no Virgin Media O2 artifact states it, and no `/.well-known/openid-configuration` is served.
+- **Webhooks / AsyncAPI:** none published.
+- **SDKs / GitHub:** [github.com/VirginMediaO2](https://github.com/VirginMediaO2) exists with 0 public repositories; a second empty org, `Virgin-Media-O2`, also exists. No first-party packages on npm, PyPI, Maven, or NuGet.
+- **Wholesale:** Virgin Media Business Wholesale surfaces serviceability and quoting to partners through Connectbase, a third-party API-driven platform — again a partner channel, not a Virgin Media O2 developer surface.
+
+## Links
+
+- [Virgin Media O2](https://www.virginmediao2.co.uk/)
+- [Virgin Media O2 Business](https://www.virginmediao2business.co.uk/)
+- [O2 UK](https://www.o2.co.uk/)
+- [Newsroom](https://news.virginmediao2.co.uk/news-views/)
+- [GitHub](https://github.com/VirginMediaO2)
+- [LinkedIn](https://www.linkedin.com/company/virgin-media-o2)
+- [Review](review.yml)

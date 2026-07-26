@@ -1,0 +1,296 @@
+aid: virgin-media-o2
+name: Virgin Media O2
+review:
+  question: Does Virgin Media O2 operate a public, self-serve developer portal with
+    downloadable API definitions?
+  answer: false
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: United Kingdom
+  tier: mno-carrier
+  gated: true
+findings:
+  summary: |
+    Virgin Media O2 has no first-party developer portal, no public API reference,
+    and no downloadable OpenAPI. Every candidate developer host was probed on
+    2026-07-25 and every one failed: developer/developers/docs/api/opengateway
+    subdomains of virginmediao2.co.uk do not resolve at all, the equivalent paths
+    on the corporate site return 404, developer.o2.co.uk and developers.o2.co.uk
+    do not resolve, and the virginmediao2business.co.uk developer subdomains do
+    not resolve either. The o2.co.uk sitemap (10 sub-sitemaps, fetched in full)
+    contains zero URLs matching developer, /api, or open-gateway. The only live
+    host in the api.* namespace is api.o2.co.uk, which resolves but returns HTTP
+    500 with no documentation and is evidently an internal service host, not a
+    developer surface.
+
+    Virgin Media O2 IS, however, a real GSMA Open Gateway participant with a real
+    commercial CAMARA launch behind it — this is not a press release with nothing
+    callable, but it is also not something a developer can reach from Virgin Media
+    O2 directly. On 23 September 2025, announced at API Days London, Virgin Media
+    O2 launched CAMARA-standardised KYC Age Verification and KYC Tenure APIs
+    commercially in the UK alongside BT/EE, Vodafone Group and CK Hutchison Group
+    Telecom (Three UK), timed to the Online Safety Act's age-check duties. SIM
+    Swap was already available across the same four operators, and an enhanced KYC
+    Match API was committed for end-2025. Access is intermediated: the joint
+    announcement names Jersey Telecom (JT Group) and TMT.ID as the technology
+    partners already "processing hundreds of thousands of Network API calls a
+    month" against the UK operators. There is no Virgin Media O2 onboarding path,
+    no sandbox, no key issuance, and no published base URL — a developer buys
+    reach to the O2 network through an aggregator, not from Virgin Media O2.
+
+    This is the central finding of the telecom sector applied to a UK carrier:
+    the network capability is real and standardised, and the developer channel
+    belongs to somebody else.
+  developerPortal:
+    exists: false
+    url: ''
+    verdict: none — no portal, no login wall, not even a marketing developer page
+    probes:
+      - url: https://virginmediao2.co.uk
+        status: 200
+        note: redirects to www; consumer/corporate marketing, no developer section
+      - url: https://www.virginmediao2.co.uk/developer
+        status: 404
+      - url: https://www.virginmediao2.co.uk/developers
+        status: 404
+      - url: https://www.virginmediao2.co.uk/api
+        status: 404
+      - url: https://www.virginmediao2.co.uk/opengateway
+        status: 404
+      - url: https://developer.virginmediao2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://developers.virginmediao2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://docs.virginmediao2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://api.virginmediao2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://opengateway.virginmediao2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://developer.o2.co.uk
+        status: 000
+        note: DNS does not resolve — no surviving legacy O2 developer programme
+      - url: https://developers.o2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://opengateway.o2.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://api.o2.co.uk
+        status: 500
+        note: host resolves and answers, returns HTTP 500, no documentation; internal service host
+      - url: https://www.o2.co.uk/business/api
+        status: 404
+      - url: https://developer.virginmediao2business.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://api.virginmediao2business.co.uk
+        status: 000
+        note: DNS does not resolve
+      - url: https://www.virginmediao2business.co.uk/api
+        status: 404
+      - url: https://www.o2.co.uk/sitemap.xml
+        status: 200
+        note: all 10 page sitemaps fetched; zero URLs matching developer, /api, or open-gateway
+      - url: https://developer.virginmedia.com
+        status: 000
+        note: DNS does not resolve
+      - url: https://api.virginmedia.com
+        status: 404
+  openapi:
+    harvested: false
+    specsCount: 0
+    note: |
+      No Virgin Media O2 endpoint serves an OpenAPI or Swagger document. No
+      /openapi.json, /openapi.yaml, /swagger.json, /api-docs, /spec or /redoc
+      path exists on any resolving Virgin Media O2 host, and no "Download
+      OpenAPI" link appears anywhere on the corporate, consumer, or business
+      sites. The CAMARA specifications that describe the APIs Virgin Media O2
+      launched are published upstream by the CAMARA project, not by Virgin Media
+      O2, and are deliberately NOT copied into this repository so that they are
+      never miscredited to the operator.
+    upstreamSpecsReferencedNotHarvested:
+      - name: KYC Age Verification
+        publisher: CAMARA Project (Linux Foundation)
+        url: https://github.com/camaraproject/KnowYourCustomer/blob/main/code/API_definitions/kyc-age-verification.yaml
+      - name: KYC Match
+        publisher: CAMARA Project (Linux Foundation)
+        url: https://github.com/camaraproject/KnowYourCustomer/blob/main/code/API_definitions/kyc-match.yaml
+      - name: SIM Swap
+        publisher: CAMARA Project (Linux Foundation)
+        url: https://github.com/camaraproject/SimSwap/blob/main/code/API_definitions/sim-swap.yaml
+      - name: Tenure
+        publisher: CAMARA Project (Linux Foundation)
+        url: https://github.com/camaraproject/Tenure
+  camara:
+    posture: GSMA Open Gateway member with a real commercial CAMARA launch, sold
+      only through third-party aggregators — no Virgin Media O2 developer channel
+    implemented: true
+    pressReleaseOnly: false
+    apis:
+      - name: KYC Age Verification
+        status: commercially launched 2025-09-23 in the UK
+        evidence: GSMA / PR Newswire joint operator announcement naming Virgin Media O2
+      - name: KYC Tenure
+        status: commercially launched 2025-09-23 in the UK
+        evidence: GSMA / PR Newswire joint operator announcement naming Virgin Media O2
+      - name: SIM Swap
+        status: already available across the four UK operators prior to the 2025-09-23 launch
+        evidence: Telefonica Open Gateway UK article naming Virgin Media O2 as one of four operators
+      - name: KYC Match
+        status: committed for end-2025 (enhanced, fuzzy matching); no callable Virgin
+          Media O2 evidence found as of review date
+        evidence: GSMA / PR Newswire joint operator announcement
+    notFound:
+      - Number Verification
+      - Device Location / Location Verification
+      - Device Status / Reachability
+      - Quality on Demand (QoD)
+      - Carrier Billing
+      - Anti-fraud / Scam Signal
+      - Device Swap
+      - Population Density
+    channelToDevelopers: |
+      Aggregator-only. The joint UK launch names Jersey Telecom (JT Group) and
+      TMT.ID as the technology partners already processing hundreds of thousands
+      of network API calls a month against the UK operators. No evidence was found
+      of Virgin Media O2 reaching the market through Aduna directly, although
+      Telefonica — one of its two 50% shareholders — is an Aduna shareholder and
+      operates its own Open Gateway developer portal at
+      developers.opengateway.telefonica.com (HTTP 200) which covers Telefonica's
+      own footprint, not the UK.
+  openGateway:
+    member: true
+    evidence: |
+      Virgin Media O2 has a dedicated organisation page in the GSMA Open Gateway
+      operator directory at
+      https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_orgs/virgin-media-o2/
+      (returns HTTP 403 to automated fetch behind Cloudflare bot protection, but is
+      indexed and reachable in a browser), and is named as a participating operator
+      in the GSMA's own 2025-09-23 press release and in Telefonica's Open Gateway
+      UK article.
+  tmForum:
+    conformanceFound: false
+    note: No TM Forum Open API conformance certification was found listed for
+      Virgin Media O2 in the TM Forum certifications-awarded directory. Absence of
+      a public listing is not proof of absence of internal TMF adoption; carriers
+      routinely run TMF620/TMF622/TMF641 in BSS/OSS without certifying or
+      publishing.
+  threeGpp:
+    nefOrScefSurface: false
+    networkSlicingApi: false
+    edgeMecApi: false
+    note: No public NEF/SCEF exposure surface, network-slicing API, or edge/MEC API
+      was found. Virgin Media O2 markets 5G and private networks commercially but
+      exposes no programmable interface for them.
+  auth:
+    model: not published
+    ciba: false
+    note: |
+      No Virgin Media O2 auth documentation exists to review. CAMARA specifies
+      OIDC and CIBA (Client-Initiated Backchannel Authentication) for
+      network-based authorization, so CIBA is almost certainly in play behind the
+      aggregator relationships, but no Virgin Media O2 artifact states it. Neither
+      /.well-known/openid-configuration nor /.well-known/oauth-authorization-server
+      is served anonymously on any Virgin Media O2 host — www.o2.co.uk returns 404
+      and api.o2.co.uk returns 500.
+  webhooks:
+    published: false
+    asyncapi: false
+    note: No public event catalog, webhook documentation, or AsyncAPI document.
+  sdks:
+    firstParty: false
+    note: No first-party Virgin Media O2 SDK packages were found on npm, PyPI,
+      Maven, or NuGet. The GitHub organisation https://github.com/VirginMediaO2
+      exists (confirmed via GitHub API, type Organization, website
+      www.virginmediao2.co.uk) and has 0 public repositories. A second empty
+      organisation, https://github.com/Virgin-Media-O2, also exists with 0 public
+      repositories.
+  postman:
+    publicWorkspace: false
+  graphql:
+    surface: false
+  grpc:
+    protos: false
+  otherApiSurfaces:
+    - name: Virgin Media Business Wholesale serviceability and quoting
+      note: Virgin Media Business Wholesale exposes serviceability, quoting and
+        product data to partners through Connectbase, a third-party API-driven
+        platform — again a partner channel, not a Virgin Media O2 developer surface.
+      public: false
+    - name: Virgin Media O2 Business Unified Recording
+      note: Listed on the UK G-Cloud Digital Marketplace with an API mentioned in
+        the service description; procurement-gated, no public documentation.
+      public: false
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: CAMARA APIs are REST/HTTPS by specification, but Virgin Media O2
+        publishes no base URL, endpoint list, or reference of its own.
+    - protocol: GraphQL
+      documented: false
+    - protocol: gRPC
+      documented: false
+    - protocol: WebSocket
+      documented: false
+    - protocol: Webhooks
+      documented: false
+sources:
+  - url: https://www.virginmediao2.co.uk/
+    type: Website
+    status: 200
+    note: Consumer/corporate marketing site. No developer or API section.
+  - url: https://www.virginmediao2business.co.uk/
+    type: Website
+    status: 200
+    note: Business site. Products and solutions are sales-led; no API listing.
+  - url: https://www.o2.co.uk/
+    type: Website
+    status: 200
+    note: O2 UK consumer site. Sitemap contains no developer or API URLs.
+  - url: https://news.virginmediao2.co.uk/
+    type: Blog
+    status: 200
+    note: WordPress newsroom with an open wp-json API; searched for Open Gateway,
+      CAMARA, network APIs and anti-fraud APIs — the 2025-09-23 joint Open Gateway
+      launch does not appear in the Virgin Media O2 newsroom index. It was issued
+      through the GSMA and carried by parent Liberty Global.
+  - url: https://www.prnewswire.com/news-releases/uk-mobile-operators-launch-age-verification-and-anti-fraud-apis-through-gsma-open-gateway-initiative-302563070.html
+    type: PressRelease
+    status: 200
+    note: Primary evidence. Names Virgin Media O2, BT/EE, CK Hutchison Group Telecom
+      and Vodafone Group; KYC Age Verification and KYC Tenure live 2025-09-23,
+      enhanced KYC Match by end-2025; names JT Group and TMT.ID as the partners
+      commercialising the APIs.
+  - url: https://opengateway.telefonica.com/en/news/article/launch-open-gateway-uk
+    type: PressRelease
+    status: 200
+    note: Names Vodafone, Virgin Media O2, BT/EE and Three as the four UK operators;
+      states SIM Swap already available and Tenure plus Age Verify committed by end
+      2025.
+  - url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_orgs/virgin-media-o2/
+    type: Standards
+    status: 403
+    note: Virgin Media O2's GSMA Open Gateway operator directory page. Cloudflare
+      bot protection returns 403 to automated fetch; page is real and indexed.
+  - url: https://developers.opengateway.telefonica.com/
+    type: Documentation
+    status: 200
+    note: Shareholder Telefonica's own Open Gateway developer portal — a real
+      self-serve surface, but Telefonica's, covering Telefonica's footprint, not
+      Virgin Media O2's UK network.
+  - url: https://api.github.com/orgs/VirginMediaO2
+    type: GitHubOrganization
+    status: 200
+    note: Organization exists, 0 public repositories.
+  - url: https://github.com/camaraproject
+    type: Standards
+    status: 200
+    note: Upstream publisher of the KYC Age Verification, KYC Match, SIM Swap and
+      Tenure specifications that Virgin Media O2 implements.

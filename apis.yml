@@ -1,0 +1,61 @@
+aid: virgin-media-o2
+url: https://raw.githubusercontent.com/api-evangelist/virgin-media-o2/refs/heads/main/apis.yml
+name: Virgin Media O2
+kind: company
+description: >-
+  Virgin Media O2 is the United Kingdom's converged fixed and mobile network
+  operator, formed in 2021 as a 50/50 joint venture between Telefonica and Liberty
+  Global by merging Virgin Media's cable broadband business with O2 UK's mobile network.
+  It serves roughly half the UK population across mobile, broadband, and fixed
+  wholesale, and sits at the connectivity layer of the telecom value chain rather
+  than the developer-tools layer. Its API posture is partner-gated and sales-led:
+  probing developer.virginmediao2.co.uk, developers.virginmediao2.co.uk,
+  docs.virginmediao2.co.uk, api.virginmediao2.co.uk, opengateway.virginmediao2.co.uk,
+  developer.o2.co.uk and the virginmediao2business.co.uk equivalents returns DNS
+  failure or HTTP 404 in every case, and neither the o2.co.uk sitemap nor the
+  corporate site contains a developer or API section. Virgin Media O2 is a GSMA Open
+  Gateway participant and on 23 September 2025 joined BT/EE, Vodafone and CK
+  Hutchison (Three UK) in the commercial UK launch of CAMARA-standardised KYC Age
+  Verification and KYC Tenure APIs, with SIM Swap already live and KYC Match
+  committed; but developers reach that network-API surface only through third-party
+  aggregators such as JT Group and TMT.ID, never through a Virgin Media O2 portal.
+  There is no public self-serve signup, no downloadable OpenAPI, no sandbox, and no
+  first-party SDK. Its GitHub organisation exists and is empty.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Telecommunications
+- United Kingdom
+- Mobile Network Operator
+- Broadband
+- Network APIs
+- CAMARA
+- Open Gateway
+- Identity Verification
+- SIM Swap
+- Age Verification
+- Converged Operator
+- Partner Gated
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.virginmediao2.co.uk/
+- type: Website
+  url: https://www.virginmediao2business.co.uk/
+- type: Website
+  url: https://www.o2.co.uk/
+- type: Blog
+  url: https://news.virginmediao2.co.uk/news-views/
+- type: BlogRSS
+  url: https://news.virginmediao2.co.uk/feed/
+- type: GitHubOrganization
+  url: https://github.com/VirginMediaO2
+- type: LinkedIn
+  url: https://www.linkedin.com/company/virgin-media-o2
+- type: Review
+  url: review.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
