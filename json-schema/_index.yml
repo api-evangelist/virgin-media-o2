@@ -1,0 +1,47 @@
+generated: '2026-07-25'
+method: searched
+source: https://news.virginmediao2.co.uk/wp-json/wp/v2/
+note: >-
+  Every schema in this directory was fetched verbatim from a Virgin Media O2
+  host. The Virgin Media O2 newsroom (news.virginmediao2.co.uk) runs WordPress
+  with the WordPress REST API left open for anonymous reads, and each collection
+  route serves its own JSON Schema (draft-04) in the OPTIONS response `schema`
+  key. These are the only machine-readable contracts Virgin Media O2 serves on
+  any host it controls. They describe newsroom content objects, NOT the CAMARA
+  network APIs (KYC Age Verification, KYC Tenure, SIM Swap) that Virgin Media O2
+  launched commercially — those are specified upstream by the CAMARA project and
+  reached only through third-party aggregators. Nothing here was authored,
+  reshaped, or padded by API Evangelist.
+schemas:
+- file: virgin-media-o2-newsroom-post.json
+  title: post
+  properties: 30
+  route: /wp-json/wp/v2/posts
+  source: https://news.virginmediao2.co.uk/wp-json/wp/v2/posts
+  status: 200
+- file: virgin-media-o2-newsroom-page.json
+  title: page
+  properties: 26
+  route: /wp-json/wp/v2/pages
+  source: https://news.virginmediao2.co.uk/wp-json/wp/v2/pages
+  status: 200
+- file: virgin-media-o2-newsroom-attachment.json
+  title: attachment
+  properties: 33
+  route: /wp-json/wp/v2/media
+  source: https://news.virginmediao2.co.uk/wp-json/wp/v2/media
+  status: 200
+- file: virgin-media-o2-newsroom-category.json
+  title: category
+  properties: 10
+  route: /wp-json/wp/v2/categories
+  source: https://news.virginmediao2.co.uk/wp-json/wp/v2/categories
+  status: 200
+- file: virgin-media-o2-newsroom-tag.json
+  title: tag
+  properties: 8
+  route: /wp-json/wp/v2/tags
+  source: https://news.virginmediao2.co.uk/wp-json/wp/v2/tags
+  status: 200
+schema_dialect: http://json-schema.org/draft-04/schema#
+retrieved: '2026-07-25'

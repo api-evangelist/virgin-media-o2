@@ -1,0 +1,47 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of Virgin Media O2 consumer and corporate hosts on 2026-07-25
+note: >-
+  Virgin Media O2 publishes no API versioning policy, no deprecation or sunset
+  policy, and no API SLA, because it publishes no API. What it does publish are
+  two real, live network service-status surfaces — one per retail brand — which
+  are the operational-transparency artifacts a Virgin Media O2 consumer or
+  partner actually gets.
+versioning:
+  scheme: not published
+  current: null
+  docs: null
+  note: >-
+    The CAMARA APIs Virgin Media O2 launched carry the CAMARA project's own
+    versioning upstream; Virgin Media O2 states no versioning contract of its own
+    and no base URL against which a version could be observed.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation policy, Sunset header (RFC 8594) support, or breaking-change notice period is published.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No API SLA is published. Commercial network availability commitments exist in
+    Virgin Media O2 Business contracts but are procurement-gated, not public.
+status_pages:
+- name: O2 Service Status
+  url: https://status.o2.co.uk
+  status: 200
+  brand: O2 (mobile)
+  note: Live network and service status checker; page title "O2 | Service Status".
+- name: Virgin Media Service Status
+  url: https://www.virginmedia.com/help/service-status
+  status: 200
+  brand: Virgin Media (broadband/TV/fixed)
+  note: Per-account service status checker; page title "Enter your details to check your service status | Virgin Media Help".
+status_page: https://status.o2.co.uk
+changelog:
+  url: null
+  note: >-
+    No API changelog or release notes exist. The corporate newsroom
+    (news.virginmediao2.co.uk) is a press channel, not a change record, and the
+    2025-09-23 joint Open Gateway launch does not even appear in its index — it
+    was issued through the GSMA and carried by parent Liberty Global.
+deprecated_operations: []

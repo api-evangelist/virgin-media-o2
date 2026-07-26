@@ -38,8 +38,62 @@ tags:
 created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.19'
-apis: []
+apis:
+- aid: virgin-media-o2:newsroom-content-api
+  name: Virgin Media O2 Newsroom Content API (WordPress REST)
+  description: >-
+    The anonymous read surface of the Virgin Media O2 press newsroom, served by
+    WordPress at news.virginmediao2.co.uk/wp-json/. It is the only callable,
+    self-describing API Virgin Media O2 serves on a host it controls: the route
+    index advertises 253 routes, and each wp/v2 collection returns its own
+    draft-04 JSON Schema in the OPTIONS response. It is a content API for press
+    releases, not a Virgin Media O2 product or network API — the CAMARA network
+    APIs Virgin Media O2 launched commercially are specified upstream and reached
+    only through third-party aggregators. Read routes are open; write routes
+    require authentication. No OpenAPI is published for it.
+  humanURL: https://news.virginmediao2.co.uk/news-views/
+  baseURL: https://news.virginmediao2.co.uk/wp-json/
+  tags:
+  - Content
+  - Newsroom
+  - WordPress
+  - Press Releases
+  properties:
+  - type: APICatalog
+    url: well-known/virgin-media-o2-newsroom-wp-json-index.json
+  - type: JSONSchema
+    url: json-schema/virgin-media-o2-newsroom-post.json
+  - type: JSONSchema
+    url: json-schema/virgin-media-o2-newsroom-page.json
+  - type: JSONSchema
+    url: json-schema/virgin-media-o2-newsroom-attachment.json
+  - type: JSONSchema
+    url: json-schema/virgin-media-o2-newsroom-category.json
+  - type: JSONSchema
+    url: json-schema/virgin-media-o2-newsroom-tag.json
 common:
+- type: DomainSecurity
+  url: security/virgin-media-o2-domain-security.yml
+- type: Conformance
+  url: conformance/virgin-media-o2-conformance.yml
+- type: Compliance
+  url: https://news.virginmediao2.co.uk/wp-content/uploads/2026/01/Virgin-Media-O2-Security-Schedule-Version-7.0-Jan-2026.pdf
+- type: Lifecycle
+  url: lifecycle/virgin-media-o2-lifecycle.yml
+- type: StatusPage
+  url: https://status.o2.co.uk
+- type: StatusPage
+  url: https://www.virginmedia.com/help/service-status
+- type: LLMsTxt
+  url: llms/virgin-media-o2-llms.txt
+- type: Support
+  url: https://www.virginmediao2.co.uk/help
+- type: HelpCenter
+  url: https://www.o2.co.uk/help
+- type: TermsOfService
+  url: https://www.virginmediao2.co.uk/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.virginmediao2.co.uk/privacy-policy
 - type: Website
   url: https://www.virginmediao2.co.uk/
 - type: Website

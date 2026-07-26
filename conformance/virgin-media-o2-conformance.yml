@@ -1,0 +1,164 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  GSMA Open Gateway operator directory, the 2025-09-23 GSMA/PR Newswire joint UK
+  operator launch, Telefonica Open Gateway UK article, the public Virgin Media O2
+  Security Schedule, and live probes of every Virgin Media O2 host on 2026-07-25
+note: >-
+  Virgin Media O2 publishes no API specification of its own, so nothing here is
+  derived from a spec — every entry is asserted from a named public source or
+  from a recorded negative probe. The CAMARA API standards below are implemented
+  by Virgin Media O2 commercially but are specified upstream by the CAMARA
+  project (Linux Foundation) and reached by developers only through third-party
+  aggregators, never through a Virgin Media O2 developer channel.
+standards:
+- id: gsma-open-gateway
+  name: GSMA Open Gateway
+  conforms: true
+  evidence: >-
+    Virgin Media O2 has a dedicated organisation page in the GSMA Open Gateway
+    operator directory and is named as a participating operator in the GSMA's
+    2025-09-23 press release.
+  url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_orgs/virgin-media-o2/
+- id: camara-kyc-age-verification
+  name: CAMARA KYC Age Verification
+  conforms: true
+  evidence: >-
+    Commercially launched in the UK on 2025-09-23 alongside BT/EE, Vodafone Group
+    and CK Hutchison Group Telecom (Three UK), timed to the Online Safety Act's
+    age-check duties.
+  upstream_spec: https://github.com/camaraproject/KnowYourCustomer/blob/main/code/API_definitions/kyc-age-verification.yaml
+  publisher: CAMARA Project (Linux Foundation)
+  developer_channel: aggregator-only
+- id: camara-tenure
+  name: CAMARA KYC Tenure
+  conforms: true
+  evidence: Commercially launched in the UK on 2025-09-23 in the same joint operator launch.
+  upstream_spec: https://github.com/camaraproject/Tenure
+  publisher: CAMARA Project (Linux Foundation)
+  developer_channel: aggregator-only
+- id: camara-sim-swap
+  name: CAMARA SIM Swap
+  conforms: true
+  evidence: >-
+    Named as already available across the four UK operators prior to the
+    2025-09-23 launch in Telefonica's Open Gateway UK article.
+  upstream_spec: https://github.com/camaraproject/SimSwap/blob/main/code/API_definitions/sim-swap.yaml
+  publisher: CAMARA Project (Linux Foundation)
+  developer_channel: aggregator-only
+- id: camara-kyc-match
+  name: CAMARA KYC Match
+  conforms: false
+  evidence: >-
+    Committed for end-2025 (enhanced, fuzzy matching) in the joint operator
+    announcement; no callable Virgin Media O2 evidence found as of 2026-07-25.
+  upstream_spec: https://github.com/camaraproject/KnowYourCustomer/blob/main/code/API_definitions/kyc-match.yaml
+  publisher: CAMARA Project (Linux Foundation)
+- id: openid-connect
+  name: OpenID Connect
+  conforms: false
+  evidence: >-
+    CAMARA specifies OIDC for network-based authorization, but Virgin Media O2
+    publishes no OIDC metadata — /.well-known/openid-configuration returns 404 on
+    www.o2.co.uk, www.virginmediao2.co.uk, www.virginmediao2business.co.uk and
+    news.virginmediao2.co.uk (probed 2026-07-25). Any OIDC provider in play sits
+    on the aggregator's estate.
+- id: oauth2-ciba
+  name: OpenID Connect CIBA (Client-Initiated Backchannel Authentication)
+  conforms: false
+  evidence: >-
+    CAMARA network APIs use CIBA for network-based authorization, so it is very
+    likely in play behind the aggregator relationships, but no Virgin Media O2
+    artifact states it and no authorization-server metadata is served anonymously
+    (RFC 8414 probe returns 404).
+- id: rfc8414-oauth-authorization-server-metadata
+  name: RFC 8414 OAuth 2.0 Authorization Server Metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404 on every Virgin Media O2 host probed.
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on www.o2.co.uk,
+    www.virginmediao2.co.uk, www.virginmediao2business.co.uk, www.virginmedia.com
+    and news.virginmediao2.co.uk.
+- id: rfc9727-api-catalog
+  name: RFC 9727 /.well-known/api-catalog
+  conforms: false
+  evidence: 404 on www.o2.co.uk; no api-catalog document on any Virgin Media O2 host.
+- id: openapi
+  name: OpenAPI Specification
+  conforms: false
+  evidence: >-
+    No Virgin Media O2 host serves an OpenAPI or Swagger document; api.o2.co.uk
+    returns HTTP 500 for /openapi.json, /swagger.json, /api-docs and /docs.
+- id: json-schema
+  name: JSON Schema
+  conforms: true
+  evidence: >-
+    news.virginmediao2.co.uk serves draft-04 JSON Schema documents for its
+    WordPress REST content objects (post, page, attachment, category, tag),
+    harvested verbatim into json-schema/.
+- id: tmforum-open-api
+  name: TM Forum Open API
+  conforms: false
+  evidence: >-
+    No TM Forum Open API conformance certification is listed for Virgin Media O2
+    in the TM Forum certifications-awarded directory. Absence of a public listing
+    is not proof of absence of internal TMF adoption in BSS/OSS.
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: false
+  evidence: No published Virgin Media O2 error contract exists to assess.
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No public event catalog, webhook documentation, or AsyncAPI document.
+published_security_requirements:
+  document: Virgin Media O2 Security Schedule
+  url: https://news.virginmediao2.co.uk/wp-content/uploads/2026/01/Virgin-Media-O2-Security-Schedule-Version-7.0-Jan-2026.pdf
+  version_retrieved: Version 8.0 July 2026 (Public)
+  retrieved: '2026-07-25'
+  scope: >-
+    Public, versioned document setting the minimum security standards third
+    parties must meet when delivering services, equipment or software to Virgin
+    Media O2. These are obligations Virgin Media O2 imposes on its supply chain
+    and evidence of the regimes it operates under — they are NOT a Virgin Media
+    O2 self-certification, and no Virgin Media O2 trust center or certificate
+    listing was found (trust.virginmediao2.co.uk does not resolve).
+  regimes:
+  - id: iso-27001
+    name: ISO/IEC 27001
+    role: required-of-suppliers
+    evidence: "\"The Supplier's information security will be compliant to ISO/IEC 27001. Evidence of…\" (section 3, Information Security)"
+  - id: cyber-essentials
+    name: Cyber Essentials / Cyber Essentials Plus
+    role: required-of-suppliers
+    evidence: Suppliers must maintain an up-to-date Cyber Essentials Certification or an accepted equivalent for the duration of any service.
+  - id: pci-dss
+    name: PCI DSS
+    role: required-of-suppliers
+    evidence: Appendix A, section 1.0 — Payment Card Industry Data Security Standard requirements for services processing cardholder data.
+  - id: sarbanes-oxley
+    name: Sarbanes-Oxley (SEC section 404)
+    role: required-of-suppliers
+    evidence: Appendix A, section 2.0 — Sarbanes Oxley Compliance.
+  - id: nis-regulations-2018
+    name: UK Network and Information Systems Regulations 2018
+    role: applicable-law
+    evidence: Appendix A, section 3.0 — Network and Information Systems Regulations (NIS) 2018.
+  - id: uk-telecommunications-security-act
+    name: UK Telecommunications (Security) Act / TSA
+    role: applicable-law
+    evidence: Appendix B — Telecommunications Security, with measures for TSA suppliers, network equipment vendors, SIM card suppliers and CPE vendors.
+  - id: cvss-3x
+    name: CVSS v3.x
+    role: required-of-suppliers
+    evidence: Vulnerability Management section mandates CVSS v3.x severity scoring with response times banded Critical (9.0-10), High (7.0-8.9) and Other (below 6.9).
+  - id: vulnerability-disclosure-policy
+    name: Supplier vulnerability disclosure policy
+    role: required-of-suppliers
+    evidence: >-
+      "The Supplier shall have in place a vulnerability disclosure policy that
+      includes, at a minimum, ..." — Virgin Media O2 requires a VDP of its
+      suppliers while publishing no security.txt or disclosure page of its own.

@@ -1,0 +1,96 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of every Virgin Media O2 host on 2026-07-25
+note: >-
+  Virgin Media O2 serves no /.well-known/ discovery surface on any host it
+  controls — no security.txt (RFC 9116), no OpenID Connect discovery, no OAuth
+  authorization-server metadata (RFC 8414), no api-catalog (RFC 9727), no
+  ai-plugin.json. Every path below was probed and returned 404 (or the host does
+  not resolve). This is recorded as real negative evidence, not as a gap to be
+  filled: because CAMARA network APIs are reached through aggregators rather than
+  a Virgin Media O2 portal, the OIDC/CIBA authorization metadata that CAMARA
+  requires sits on the aggregator's estate, not here. The one machine-readable
+  discovery document Virgin Media O2 does serve is the WordPress REST route index
+  on the newsroom host, captured verbatim below.
+hosts:
+- https://www.virginmediao2.co.uk
+- https://www.o2.co.uk
+- https://www.virginmediao2business.co.uk
+- https://news.virginmediao2.co.uk
+- https://www.virginmedia.com
+- https://api.o2.co.uk
+documents:
+- path: /.well-known/security.txt
+  host: https://www.o2.co.uk
+  status: 404
+- path: /.well-known/security.txt
+  host: https://www.virginmediao2.co.uk
+  status: 404
+- path: /.well-known/security.txt
+  host: https://www.virginmediao2business.co.uk
+  status: 404
+- path: /.well-known/security.txt
+  host: https://www.virginmedia.com
+  status: 404
+- path: /.well-known/security.txt
+  host: https://news.virginmediao2.co.uk
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://www.o2.co.uk
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://www.virginmediao2.co.uk
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://www.virginmediao2business.co.uk
+  status: 404
+- path: /.well-known/openid-configuration
+  host: https://news.virginmediao2.co.uk
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  host: https://www.o2.co.uk
+  status: 404
+- path: /.well-known/api-catalog
+  host: https://www.o2.co.uk
+  status: 404
+- path: /openapi.json
+  host: https://www.o2.co.uk
+  status: 404
+- path: /swagger.json
+  host: https://www.o2.co.uk
+  status: 404
+- path: /openapi.json
+  host: https://api.o2.co.uk
+  status: 500
+  note: host resolves but returns HTTP 500 for every path probed; internal service host
+- path: /swagger.json
+  host: https://api.o2.co.uk
+  status: 500
+- path: /api-docs
+  host: https://api.o2.co.uk
+  status: 500
+- path: /docs
+  host: https://api.o2.co.uk
+  status: 500
+- path: /llms.txt
+  host: https://www.virginmediao2.co.uk
+  status: 404
+- path: /llms.txt
+  host: https://www.o2.co.uk
+  status: 404
+- path: /llms.txt
+  host: https://news.virginmediao2.co.uk
+  status: 404
+- path: /llms.txt
+  host: https://www.virginmediao2business.co.uk
+  status: 404
+- path: /wp-json/
+  host: https://news.virginmediao2.co.uk
+  status: 200
+  file: virgin-media-o2-newsroom-wp-json-index.json
+  kind: WordPress REST API route index
+  routes: 253
+  note: >-
+    Anonymous, unauthenticated machine-readable route index for the Virgin Media
+    O2 newsroom; the only API catalog Virgin Media O2 publishes on any of its own
+    hosts. Read routes under wp/v2 are open; write routes require authentication.

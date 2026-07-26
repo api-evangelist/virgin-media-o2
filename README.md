@@ -26,7 +26,25 @@ Virgin Media O2 is the United Kingdom's converged fixed and mobile network opera
 
 ## APIs
 
-None listed. Virgin Media O2 publishes no public API documentation, no API reference, and no machine-readable API definition of its own. This is an honest empty set, not a gap in research — every candidate developer host was probed on 2026-07-25 and recorded in [review.yml](review.yml).
+Virgin Media O2 publishes no public API documentation, no API reference, and no OpenAPI of its own. Every candidate developer host was probed on 2026-07-25 and recorded in [review.yml](review.yml) — `api.o2.co.uk` resolves but returns HTTP 500 for `/openapi.json`, `/swagger.json`, `/api-docs` and `/docs`.
+
+The one callable, self-describing API Virgin Media O2 serves on a host it controls is the newsroom's WordPress REST API at [news.virginmediao2.co.uk/wp-json/](https://news.virginmediao2.co.uk/wp-json/) — 253 routes, anonymous reads, with a draft-04 JSON Schema per collection. It is a press-content API, not a product or network API, and it is catalogued as such.
+
+## Artifacts
+
+| Artifact | File | Method |
+| --- | --- | --- |
+| JSON Schema (5 newsroom objects) | [json-schema/](json-schema/_index.yml) | searched — served verbatim by news.virginmediao2.co.uk |
+| WordPress REST route index | [well-known/virgin-media-o2-newsroom-wp-json-index.json](well-known/virgin-media-o2-newsroom-wp-json-index.json) | searched |
+| Well-known probe record | [well-known/virgin-media-o2-well-known.yml](well-known/virgin-media-o2-well-known.yml) | searched — no security.txt, OIDC, OAuth metadata or api-catalog on any host |
+| Conformance | [conformance/virgin-media-o2-conformance.yml](conformance/virgin-media-o2-conformance.yml) | searched |
+| Lifecycle | [lifecycle/virgin-media-o2-lifecycle.yml](lifecycle/virgin-media-o2-lifecycle.yml) | searched |
+| Domain security | [security/virgin-media-o2-domain-security.yml](security/virgin-media-o2-domain-security.yml) | probed |
+| llms.txt | [llms/virgin-media-o2-llms.txt](llms/virgin-media-o2-llms.txt) | generated |
+
+No packages, MCP server, sandbox, CLI, changelog, conventions, error catalog, agent skills, or Arazzo workflows are recorded — there is no first-party API surface to ground them in, and none were fabricated.
+
+**Security posture:** Virgin Media O2 publishes a versioned, public [Security Schedule](https://news.virginmediao2.co.uk/wp-content/uploads/2026/01/Virgin-Media-O2-Security-Schedule-Version-7.0-Jan-2026.pdf) (v8.0, July 2026) setting the minimum security standards its suppliers must meet — ISO/IEC 27001, Cyber Essentials, PCI DSS, Sarbanes-Oxley, the UK NIS Regulations 2018, the Telecommunications (Security) Act, CVSS v3.x remediation bands, and a required supplier vulnerability disclosure policy. Virgin Media O2 requires a VDP of its suppliers while publishing no `security.txt` or disclosure page of its own, and no trust center or certificate listing was found.
 
 ## CAMARA and GSMA Open Gateway
 
