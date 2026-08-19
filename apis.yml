@@ -37,7 +37,7 @@ tags:
 - Partner Gated
 created: '2026-07-25'
 modified: '2026-07-25'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: virgin-media-o2:newsroom-content-api
   name: Virgin Media O2 Newsroom Content API (WordPress REST)
