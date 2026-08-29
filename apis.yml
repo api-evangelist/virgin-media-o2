@@ -21,6 +21,17 @@ description: >-
   aggregators such as JT Group and TMT.ID, never through a Virgin Media O2 portal.
   There is no public self-serve signup, no downloadable OpenAPI, no sandbox, and no
   first-party SDK. Its GitHub organisation exists and is empty.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Telecommunications
