@@ -62,38 +62,20 @@ created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
 apis:
-- aid: virgin-media-o2:newsroom-content-api
-  name: Virgin Media O2 Newsroom Content API (WordPress REST)
-  description: >-
-    The anonymous read surface of the Virgin Media O2 press newsroom, served by
-    WordPress at news.virginmediao2.co.uk/wp-json/. It is the only callable,
-    self-describing API Virgin Media O2 serves on a host it controls: the route
-    index advertises 253 routes, and each wp/v2 collection returns its own
-    draft-04 JSON Schema in the OPTIONS response. It is a content API for press
-    releases, not a Virgin Media O2 product or network API — the CAMARA network
-    APIs Virgin Media O2 launched commercially are specified upstream and reached
-    only through third-party aggregators. Read routes are open; write routes
-    require authentication. No OpenAPI is published for it.
-  humanURL: https://news.virginmediao2.co.uk/news-views/
-  baseURL: https://news.virginmediao2.co.uk/wp-json/
+- aid: virgin-media-o2:news-virginmediao2-co-uk-website-wordpress-rest
+  name: Virgin Media O2 Website (WordPress REST)
+  description: 'The public WordPress REST API (wp-json) of the Virgin Media O2 website at news.virginmediao2.co.uk:
+    the route index of the site''s content management system, catalogued as one site surface rather than
+    as separate APIs.'
+  baseURL: https://news.virginmediao2.co.uk/wp-json
   tags:
-  - Content
-  - Newsroom
   - WordPress
-  - Press Releases
+  x-surface: platform-generated
   properties:
-  - type: APICatalog
-    url: well-known/virgin-media-o2-newsroom-wp-json-index.json
-  - type: JSONSchema
-    url: json-schema/virgin-media-o2-newsroom-post.json
-  - type: JSONSchema
-    url: json-schema/virgin-media-o2-newsroom-page.json
-  - type: JSONSchema
-    url: json-schema/virgin-media-o2-newsroom-attachment.json
-  - type: JSONSchema
-    url: json-schema/virgin-media-o2-newsroom-category.json
-  - type: JSONSchema
-    url: json-schema/virgin-media-o2-newsroom-tag.json
+  - type: Documentation
+    url: https://news.virginmediao2.co.uk/wp-json
+  x-platform: wordpress
+  x-platform-surface: rest
 common:
 - type: DomainSecurity
   url: security/virgin-media-o2-domain-security.yml
@@ -133,6 +115,12 @@ common:
   url: https://www.linkedin.com/company/virgin-media-o2
 - type: Review
   url: review.yml
+- type: APICatalog
+  url: well-known/virgin-media-o2-newsroom-wp-json-index.json
+- type: JSONSchema
+  url: json-schema/virgin-media-o2-newsroom-category.json
+- type: JSONSchema
+  url: json-schema/virgin-media-o2-newsroom-tag.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
